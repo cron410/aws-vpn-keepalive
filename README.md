@@ -8,6 +8,9 @@ Arg 2 is the outside IP of the tunnel you want to keep Up.
 `./vpn.sh vpn-00008a111111e 69.169.269.69`  
 
 Many VPNs in Parallel:  
+![image](https://github.com/cron410/aws-vpn-keepalive/assets/3082899/c1863636-32e6-414d-8fdd-05930ee92a5e)
+
+
 ```
 parallel --ungroup ./vpn.sh ::: "vpn-00008a111111e" "vpn-111118a222222e" :::+ "69.169.269.69" "69.1.2.69"
 or
@@ -28,3 +31,5 @@ vpn-111118a222222e
 By default, Parallel will run 1 job per CPU core, so if you have 4 CPU cores and 10 VPNs to keepalive, only 4 will be processed unless you specify `-j10` or a number higher than the number of VPNs.
 
 `:::+` as the separator between the two sets of arguments tells Parallel to match up the first ID with the first IP, second ID with second IP and so on.. This behavior can be changed if you need to keep both tunnels up and match 1 ID with 2 IPs. More info: https://www.gnu.org/software/parallel/parallel_tutorial.html#input-sources
+
+![image](https://github.com/cron410/aws-vpn-keepalive/assets/3082899/a4462823-1c27-45f9-b940-06f5ea0e036c)
